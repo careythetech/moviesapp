@@ -1,0 +1,36 @@
+<h1>List Of Movies</h1>
+<div *ngFor = "let movie of movies">
+    {{movie.name}} {{movie.length}} {{movie.actor}}
+</div>
+<br/>
+<br/>
+<br/>
+<div>
+    {{fetchMovie.id}} {{fetchMovie.name}} {{fetchMovie.length}} {{fetchMovie.actor}}
+</div>
+<br/>
+<div>
+    <form #movieForm="ngForm" (ngSubmit)="saveIt(movieForm.value)" class="form form-movie">
+        <label for="movie-name">Movie name</label>
+        <input name="name" id="movie-name" type="text" placeholder="Name" ngModel required>
+        <label for="movie-length">Movie length</label> 
+        <input name="length" id="movie-length" type="text" placeholder="Movie legnth" ngModel required>
+        <label for="movie-actor">Movie Actor</label>
+        <input name="actor" id="movie-actor" type="text" placeholder="Movie actor" ngModel required>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<br/>
+<div>
+    <form #updateForm="ngForm" (ngSubmit)="updateIt(updateForm.value)" class="form form-movie">
+        <label for="movie-id">Movie Id</label>
+        <input name="id" id="movie-id" type="text" placeholder="Id" ngModel required>
+        <label for="movie-name">Movie name</label>
+        <input name="name" id="movie-name" type="text" placeholder="Name" ngModel required>
+        <label for="movie-length">Movie length</label> 
+        <input name="length" id="movie-length" type="text" placeholder="Movie legnth" ngModel required>
+        <label for="movie-actor">Movie Actor</label>
+        <input name="actor" id="movie-actor" type="text" placeholder="Movie actor" ngModel required>
+        <input type="submit" value="Update">
+    </form>
+</div>
