@@ -1,6 +1,6 @@
 <h1>List Of Movies</h1>
 <div *ngFor = "let movie of movies">
-    {{movie.name}} {{movie.length}} {{movie.actor}}
+    {{movie.id}} {{movie.name}} {{movie.length}} {{movie.actor}} <button>Add</button><br/><button>Edit</button><br/><button>Delete</button>
 </div>
 <br/>
 <br/>
@@ -22,7 +22,7 @@
 </div>
 <br/>
 <div>
-    <form #updateForm="ngForm" (ngSubmit)="updateIt(updateForm.value)" class="form form-movie">
+    <form #updateForm="ngForm" (ngSubmit)="updateIt(updateForm)" class="form form-update" >
         <label for="movie-id">Movie Id</label>
         <input name="id" id="movie-id" type="text" placeholder="Id" ngModel required>
         <label for="movie-name">Movie name</label>
@@ -32,5 +32,12 @@
         <label for="movie-actor">Movie Actor</label>
         <input name="actor" id="movie-actor" type="text" placeholder="Movie actor" ngModel required>
         <input type="submit" value="Update">
+    </form>
+</div>
+<div>
+    <form #deleteForm="ngForm" (ngSubmit)="deleteIt(deleteForm)" class="form form-delete">
+        <label for="movie-id">Movie Id</label>
+        <input name="id" id="movie-id" type="text" placeholder="Movie id" ngModel required>
+        <input type="submit" value="Delete">
     </form>
 </div>

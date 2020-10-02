@@ -32,13 +32,22 @@ export class MoviesComponent implements OnInit {
       // console.log(form);
     }, error => console.error(error));
   }
+
   updateIt(form: NgForm){
     this.movieid = form.controls['id'].value;
     console.log(this.movieid);
-    this.movieservice.updateMovie(this.movieid,form).subscribe(data => {
+    this.movieservice.updateMovie(this.movieid,form.value).subscribe(data => {
       this.response = data;
       // console.log(this.response);
       // console.log(form);
     }, error => console.error(error));
+  }
+  
+  deleteIt(form: NgForm){
+    this.movieid = form.controls['id'].value;
+    this.movieservice.deleteMovie(this.movieid).subscribe(data => {
+      this.response = data;
+      console.log(this.response);
+    },error => console.error(error));
   }
 }
